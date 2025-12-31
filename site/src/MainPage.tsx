@@ -74,12 +74,9 @@ export default function MainPage() {
                     <h1 className="text-3xl font-bold">Stephen Seidel</h1>
                     <p className="text-gray-300 text-lg mt-1">Software Engineer</p>
                 </div>
-                <button
-                    onClick={() => console.log(activeSections)}
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
-                >
-                    Flip Tiles
-                </button>
+                <div className="font-mono text-green-500 text-xl">
+                    /* Heap Hierarch */
+                </div>
             </header>
 
             {/* Content area - contains both scrollable content and fixed FlipTiles */}
@@ -151,8 +148,8 @@ export default function MainPage() {
                 </div>
 
                 {/* Active Section Indicator */}
-                <div className={`absolute top-16 left-16 z-20 bg-white border-2 border-gray-800 rounded-lg px-6 py-4 shadow-lg transition-opacity duration-500 ${activeSectionIndex !== null ? 'opacity-100' : 'opacity-0'}`}>
-                    <div className="text-2xl font-bold text-gray-900">{sections[currentSectionIndex].id}</div>
+                <div className={`absolute top-16 left-16 z-20 bg-gray-900 rounded-lg px-6 py-4 shadow-lg transition-opacity duration-500 ${activeSectionIndex !== null ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className="text-2xl font-mono font-bold text-blue-400">&lt;{sections[currentSectionIndex].id} /&gt;</div>
                 </div>
             </div>
         </div>
