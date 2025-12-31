@@ -1,13 +1,24 @@
 import { ImageData } from 'images';
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 
-const ROWS = 6
-const COLS = 8
+const TILE_SIZE = 50;
 
 type FlipTilesProps = {
     flipped: boolean;
     imageData: ImageData;
 };
+
+/**
+ * Return a deterministic pseudo-random number seeded with the given value.
+ * @param seed 
+ * @returns 
+ */
+const mulberry32 = (seed: number) => {
+    let t = seed + 0x6D2B79F5;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+}
 
 export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -15,15 +26,36 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
 
     useEffect(() => {
         if (!containerRef.current) return
-        
+
         const observer = new ResizeObserver(entries => {
             const { width, height } = entries[0].contentRect
             setDimensions({ width, height })
         })
-        
+
         observer.observe(containerRef.current)
         return () => observer.disconnect()
     }, [containerRef]);
+
+    const tilesGrid = useMemo(() => {
+        const cols = Math.ceil(dimensions.width / TILE_SIZE);
+        const rows = Math.ceil(dimensions.height / TILE_SIZE);
+
+        const maxDim = rows + cols;
+
+        return Array.from({ length: rows }).map((_, rowIndex) => {
+            return Array.from({ length: cols }).map((_, colIndex) => {
+                const id = rowIndex * cols + colIndex;
+                const bit = Math.floor(mulberry32(id) * 2)
+                return {
+                    id,
+                    bit,
+                    bgX: -colIndex * TILE_SIZE,
+                    bgY: -rowIndex * TILE_SIZE,
+                    delay: ((rowIndex + colIndex) / maxDim) * 250,
+                }
+            })
+        });
+    }, [dimensions])
 
     const {
         imageWidth,
@@ -48,12 +80,6 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         const shiftX = Math.round(Math.min(0, Math.max(dimensions.width / 2 - focusX, -minShiftX)));
         const shiftY = Math.round(Math.min(0, Math.max(dimensions.height / 2 - focusY, -minShiftY)));
 
-        console.log('Container dimensions:', dimensions.width, dimensions.height);
-        console.log('Image original dimensions:', imageData.width, imageData.height);
-        console.log('Computed image size:', imageWidth, imageHeight);
-        console.log('Focus point:', focusX, focusY);
-        console.log('Computed shifts:', shiftX, shiftY);
-
         return {
             imageWidth,
             imageHeight,
@@ -62,39 +88,26 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         };
     }, [imageData, dimensions])
 
-    const tileWidth = dimensions.width / COLS
-    const tileHeight = dimensions.height / ROWS
-
-    const rows = Array.from({ length: ROWS }).map((_, rowIndex) => {
-        return Array.from({ length: COLS }).map((_, colIndex) => {
-            const id = rowIndex * COLS + colIndex
-            return {
-                id,
-                bgX: -colIndex * tileWidth,
-                bgY: -rowIndex * tileHeight,
-                delay: (rowIndex + colIndex) * 50,
-            }
-        })
-    })
-
     return (
         <div
-            className="w-full h-full bg-gray-900"
+            className="w-full h-full bg-gray-900 overflow-hidden"
             ref={containerRef}
         >
             <div
-                className="w-full h-full flex flex-col"
+                className="flex flex-col overflow-hidden"
                 style={{
                     perspective: '1000px',
                 }}
             >
-                {rows.map((rowTiles, rowIndex) => (
-                    <div key={rowIndex} className="flex flex-row flex-1">
+                {tilesGrid.map((rowTiles, rowIndex) => (
+                    <div key={rowIndex} className="flex flex-row overflow-hidden" style={{ height: TILE_SIZE }}>
                         {rowTiles.map((tile) => (
                             <div
                                 key={tile.id}
-                                className="flex-1 relative"
+                                className="relative flex-shrink-0"
                                 style={{
+                                    width: TILE_SIZE,
+                                    height: TILE_SIZE,
                                     transformStyle: 'preserve-3d',
                                     transition: `transform 0.6s`,
                                     transitionDelay: `${tile.delay}ms`,
@@ -109,7 +122,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                         background: `linear-gradient(135deg, #667eea ${(tile.id % 10) * 10}%, #764ba2 100%)`,
                                     }}
                                 >
-                                    {tile.id + 1}
+                                    {tile.bit}
                                 </div>
 
                                 {/* Back face - Tiled image */}
