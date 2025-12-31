@@ -5,12 +5,18 @@ import Introduction from './sections/Introduction';
 import Experience from './sections/Experience';
 import Education from './sections/Education';
 import TechnicalSkills from './sections/TechnicalSkills';
+import Projects from './sections/Projects';
+import Publications from './sections/Publications';
+import Hobbies from './sections/Hobbies';
 
 const sections = [
     { id: 'Introduction', Component: Introduction },
     { id: 'Experience', Component: Experience },
     { id: 'Education', Component: Education },
     { id: 'Technical Skills', Component: TechnicalSkills },
+    { id: 'Projects', Component: Projects },
+    { id: 'Publications', Component: Publications },
+    { id: 'Hobbies', Component: Hobbies },
 ];
 
 export default function MainPage() {
