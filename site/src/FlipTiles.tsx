@@ -98,8 +98,8 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                     transformStyle: 'preserve-3d',
                                     transition: `transform 300ms, opacity 450ms`,
                                     transitionDelay: `${tile.delay}ms`,
-                                    transform: flipped ? 'rotateY(90deg) rotateX(90deg)' : 'rotateY(0deg) rotateX(0deg)',
-                                    opacity: flipped ? 0 : 1,
+                                    transform: flipped ? 'rotateY(0deg) rotateX(0deg)' : 'rotateY(90deg) rotateX(90deg)',
+                                    opacity: flipped ? 1 : 0,
                                 }}
                             >
                                 {/* Front face - Image with ASCII byte overlay */}
