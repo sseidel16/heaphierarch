@@ -1,7 +1,7 @@
 import { ImageData } from 'images';
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 
-const TILE_SIZE = 50;
+const TILE_SIZE = 100;
 
 type FlipTilesProps = {
     flipped: boolean;
@@ -51,7 +51,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                     bit,
                     bgX: -colIndex * TILE_SIZE,
                     bgY: -rowIndex * TILE_SIZE,
-                    delay: ((rowIndex + colIndex) / maxDim) * 250,
+                    delay: ((rowIndex + colIndex) / maxDim) * 500,
                 }
             })
         });
@@ -109,34 +109,28 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                     width: TILE_SIZE,
                                     height: TILE_SIZE,
                                     transformStyle: 'preserve-3d',
-                                    transition: `transform 0.6s`,
+                                    transition: `transform 300ms, opacity 450ms`,
                                     transitionDelay: `${tile.delay}ms`,
-                                    transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                                    transform: flipped ? 'rotateY(90deg) rotateX(90deg)' : 'rotateY(0deg) rotateX(0deg)',
+                                    opacity: flipped ? 0 : 1,
                                 }}
                             >
-                                {/* Front face */}
+                                {/* Front face - Image with bit overlay */}
                                 <div
-                                    className="absolute inset-0 flex items-center justify-center text-white font-bold border border-gray-700"
+                                    className="absolute inset-0 flex items-center justify-center font-bold border"
                                     style={{
                                         backfaceVisibility: 'hidden',
-                                        background: `linear-gradient(135deg, #667eea ${(tile.id % 10) * 10}%, #764ba2 100%)`,
-                                    }}
-                                >
-                                    {tile.bit}
-                                </div>
-
-                                {/* Back face - Tiled image */}
-                                <div
-                                    className="absolute inset-0 w-full h-full"
-                                    style={{
-                                        backfaceVisibility: 'hidden',
-                                        transform: 'rotateY(180deg)',
                                         backgroundImage: `url(${imageData.src})`,
                                         backgroundSize: `${imageWidth}px ${imageHeight}px`,
                                         backgroundPosition: `${tile.bgX + shiftX}px ${tile.bgY + shiftY}px`,
                                         backgroundRepeat: 'no-repeat',
+                                        color: '#d4d4d4',
+                                        borderColor: '#3e3e3e',
+                                        textShadow: '0 0 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)',
                                     }}
-                                />
+                                >
+                                    {tile.bit}
+                                </div>
                             </div>
                         ))}
                     </div>
