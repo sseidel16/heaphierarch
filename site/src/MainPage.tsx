@@ -25,7 +25,7 @@ export default function MainPage() {
             </header>
 
             {/* FlipTiles fills remaining space */}
-            <div className="flex-1 overflow-hidden p-8">
+            <div className="flex-1 overflow-hidden p-8 bg-gray-900">
                 <FlipTiles flipped={flipped} imageData={imageData} />
             </div>
         </div>
