@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import FlipTiles from './FlipTiles';
+import { images } from './images';
 
 export default function MainPage() {
     const [flipped, setFlipped] = useState(false)
+    const [imageData] = useState(() => images[0]);
+
+    console.log('Image dimensions:', imageData.width, imageData.height)
 
     return (
         <div className="h-screen w-screen flex flex-col overflow-hidden">
@@ -21,8 +25,8 @@ export default function MainPage() {
             </header>
 
             {/* FlipTiles fills remaining space */}
-            <div className="flex-1 overflow-hidden">
-                <FlipTiles flipped={flipped} />
+            <div className="flex-1 overflow-hidden p-8">
+                <FlipTiles flipped={flipped} imageData={imageData} />
             </div>
         </div>
     )
