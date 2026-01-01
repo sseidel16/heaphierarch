@@ -8,7 +8,7 @@ export default function Security() {
                 <p className="text-gray-400">Amazon (Ring) • 2021 - 2023</p>
                 <p className="mt-2">
                     Became Ring's Application Security Certifier, responsible for running security certifications across 
-                    Ring and Alexa products. This wasn't just paperwork—I dove deep into firmware code, network protocols, 
+                    Ring and Alexa products. This wasn't just paperwork. I dove deep into firmware code, network protocols, 
                     and system architecture to find real vulnerabilities before they reached production.
                 </p>
                 <ul className="mt-2 space-y-1 list-disc list-inside">
@@ -23,7 +23,7 @@ export default function Security() {
                 <p className="text-gray-400">Amazon (Ring) • 2023 - Present</p>
                 <p className="mt-2">
                     Designed and built Ring's secure customer file upload system from the ground up with security as 
-                    the primary concern. The system handles sensitive customer files—images, videos, audio—with multiple 
+                    the primary concern. The system handles sensitive customer files, images, videos, audio, with multiple 
                     layers of protection and isolation.
                 </p>
                 <ul className="mt-2 space-y-1 list-disc list-inside">

@@ -24,6 +24,16 @@ export default function Education() {
                     Phi Theta Kappa International Honor Society. Outstanding Honors Student Award.
                 </p>
             </div>
+            <div>
+                <h3 className="text-xl font-semibold text-gray-100">Self-Taught Foundation</h3>
+                <p className="text-gray-400">Early Years</p>
+                <p className="mt-2">
+                    My real education started long before college. I taught myself programming starting with Yabasic, then progressing 
+                    through Java, C, and C++. Built electronics projects with Raspberry Pi, learned oscilloscopes and circuit design. 
+                    Developed and shipped Android applications. This self-directed learning gave me a practical foundation that formal 
+                    education built upon. Honestly, this period taught me more about problem-solving, persistence, and ownership than any classroom ever could.
+                </p>
+            </div>
         </div>
     );
 }

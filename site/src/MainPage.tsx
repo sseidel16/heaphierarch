@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, act, useMemo } from 'react';
 import FlipTiles from './FlipTiles';
 import { images } from './images';
-import HelloWorld from './sections/Introduction';
+import HelloWorld from './sections/HelloWorld';
 import Experience from './sections/Experience';
 import Education from './sections/Education';
 import TechnicalSkills from './sections/TechnicalSkills';
@@ -137,13 +137,13 @@ export default function MainPage() {
                             </p>
                             <div className="space-y-4 text-center text-gray-300">
                                 <p className="text-lg">
-                                    <span className="font-semibold text-gray-100">Email:</span> stephen.a.seidel@gmail.com
+                                    <span className="font-semibold text-gray-100">Email:</span> <a href="mailto:heaphierarch@proton.me" className="text-blue-400 hover:text-blue-300 underline">heaphierarch@proton.me</a>
                                 </p>
                                 <p className="text-lg">
-                                    <span className="font-semibold text-gray-100">LinkedIn:</span> linkedin.com/in/stephen-seidel
+                                    <span className="font-semibold text-gray-100">LinkedIn:</span> <a href="https://linkedin.com/in/stephen-seidel" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">linkedin.com/in/stephen-seidel</a>
                                 </p>
                                 <p className="text-lg">
-                                    <span className="font-semibold text-gray-100">GitHub:</span> github.com/sseidel16
+                                    <span className="font-semibold text-gray-100">GitHub:</span> <a href="https://github.com/sseidel16" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">github.com/sseidel16</a>
                                 </p>
                             </div>
                         </section>

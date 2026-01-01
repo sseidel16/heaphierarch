@@ -8,7 +8,7 @@ export default function Projects() {
                 <p className="text-gray-400">Android App • 2013 - Present</p>
                 <p className="mt-2">
                     A liturgical music learning tool for the Orthodox Christian community that I built entirely from scratch. 
-                    The app loads and manipulates arrays of sound samples to produce precise frequencies and smooth transitions—
+                    The app loads and manipulates arrays of sound samples to produce precise frequencies and smooth transitions,
                     all with native C++ code and OpenSL ES to eliminate buffering delays.
                 </p>
                 <p className="mt-2">
@@ -23,7 +23,7 @@ export default function Projects() {
                 <p className="mt-2">
                     Designed my own programming language with Lisp-like syntax and a unique capability: you could store references 
                     to blocks of code, pass them between functions, and execute them on demand. Built three fully working interpreters 
-                    for it—one in Java, one in Visual Basic, and a partially complete version in C++.
+                    for it, one in Java, one in Visual Basic, and a partially complete version in C++.
                 </p>
             </div>
             <div>
@@ -41,7 +41,7 @@ export default function Projects() {
                 <p className="mt-2">
                     Built an autonomous racing car using multiple Arduinos, LIDAR, and custom motor control. Implemented adaptive 
                     speed control with risk analysis, optimized steering algorithms, and fault-tolerant sensor fusion combining 
-                    magnetometer and GPS data. Only 3 cars in the entire class finished the race—mine came in first.
+                    magnetometer and GPS data. Only 3 cars in the entire class finished the race, mine came in first.
                 </p>
             </div>
             <div>
@@ -49,7 +49,7 @@ export default function Projects() {
                 <p className="text-gray-400">Personal Project • 2015</p>
                 <p className="mt-2">
                     Used capacitors, resistors, and a breadboard to physically model differential equations, then graphed the 
-                    solutions on an oscilloscope. One of the most fascinating projects I've ever done—watching math come alive 
+                    solutions on an oscilloscope. One of the most fascinating projects I've ever done, watching math come alive 
                     through analog circuits.
                 </p>
             </div>
