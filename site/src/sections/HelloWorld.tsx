@@ -13,8 +13,8 @@ export default function HelloWorld() {
                 them, and building circuits with Raspberry Pi, learning my way around oscilloscopes and breadboards.
             </p>
             <p>
-                By 16, I was in college with a solid foundation in both software and hardware. But here's the interesting 
-                part: I deliberately chose Systems Engineering over Computer Science. Why? I was already a proficient programmer. 
+                By 16, I had a solid foundation in both software and hardware. When I went to college, 
+                I deliberately chose Systems Engineering over Computer Science. Why? I was already a proficient programmer. 
                 What I craved was the hardware knowledge: circuits, digital design, FPGAs, robotics. I wanted to understand computers 
                 from the silicon up, not just from the API down.
             </p>
