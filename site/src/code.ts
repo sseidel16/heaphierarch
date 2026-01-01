@@ -1,16 +1,19 @@
-export const fibCode =
-`int fibonacci(int n) {
-    if (n <= 0) return 0;
+const ogCode =
+`int~fibonacci(int~n) {
+    int~lFib = 0, fib = 1, nFib = 0;
     
-    int lastFib = 0;
-    int fib = 1;
-    int newFib = 0;
-    
-    for (int i = 2; i <= n; i++) {
-        newFib = lastFib + fib;
-        lastFib = fib;
-        fib = newFib;
+    for (int~i = 2; i <= n; i++) {
+        nFib = lFib + fib;
+        lFib = fib;
+        fib = nFib;
     }
     
-    return fib;
+    return~fib;
 }`;
+
+export const fibCode = ogCode
+    .replace(/~/g, ' ');                // Convert ~ to spaces
+
+export const trimmedCode = ogCode
+    .replace(/\s+/g, '')                // Remove all whitespace
+    .replace(/~/g, ' ');                // Convert ~ to spaces

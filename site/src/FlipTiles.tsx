@@ -1,6 +1,6 @@
 import { ImageData } from 'images';
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { fibCode } from './code'
+import { trimmedCode } from './code'
 
 type FlipTilesProps = {
     flipped: boolean;
@@ -29,7 +29,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         tileSize,
     } = useMemo(() => {
         const area = dimensions.width * dimensions.height;
-        const tileDimAim = Math.sqrt(area / 100); // Aim for ~100 tiles
+        const tileDimAim = Math.sqrt(area / trimmedCode.length); // Aim for ~trimmed length tiles
         const tileSize = Math.ceil(dimensions.width / Math.floor(dimensions.width / tileDimAim));
 
         const cols = Math.ceil(dimensions.width / tileSize);
@@ -122,7 +122,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                     }}
                                 >
                                     {(() => {
-                                        const char = tile.id < fibCode.length ? fibCode[tile.id] : ' ';
+                                        const char = tile.id < trimmedCode.length ? trimmedCode[tile.id] : ' ';
                                         const byte = char.charCodeAt(0);
                                         const upperNibble = (byte >> 4).toString(2).padStart(4, '0');
                                         const lowerNibble = (byte & 0xF).toString(2).padStart(4, '0');

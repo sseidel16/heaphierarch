@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, act, useMemo } from 'react';
 import FlipTiles from './FlipTiles';
 import { images } from './images';
+import { fibCode } from './code';
 import HelloWorld from './sections/HelloWorld';
 import Experience from './sections/Experience';
 import Education from './sections/Education';
@@ -24,6 +25,7 @@ const sections = [
 export default function MainPage() {
     const [activeSections, setActiveSections] = useState<boolean[]>(() => sections.map(() => false));
     const [currentSectionIndex, setCurrentSectionIndex] = useState<number>(0);
+    const [showCode, setShowCode] = useState(false);
 
     const headerRefs = useRef<(HTMLHeadingElement | null)[]>([]);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -77,13 +79,26 @@ export default function MainPage() {
     return (
         <div className="h-screen w-screen flex flex-col overflow-hidden">
             {/* Fixed Header */}
-            <header className="bg-gray-800 text-white py-6 px-8 shadow-lg flex items-center justify-between z-20 relative">
-                <div>
-                    <h1 className="text-3xl font-bold">Stephen Seidel</h1>
-                    <p className="text-gray-300 text-lg mt-1">Senior Software and Systems Engineer</p>
+            <header className="bg-gray-800 text-white py-3 px-4 shadow-lg flex items-center justify-between z-20 relative sm:py-6 sm:px-8">
+                <div className="min-w-0 flex-shrink">
+                    <a 
+                        href="#top"
+                        className="text-xl font-bold whitespace-nowrap sm:text-2xl md:text-3xl hover:text-gray-300 transition-colors cursor-pointer no-underline text-white"
+                    >
+                        <h1 className="inline">Stephen Seidel</h1>
+                    </a>
+                    <p className="text-gray-300 text-sm mt-0 whitespace-nowrap sm:text-base sm:mt-0.5 md:text-lg md:mt-1">Senior Software and Systems Engineer</p>
                 </div>
-                <div className="font-mono text-green-500 text-xl">
-                    /* Heap Hierarch */
+                <div className="flex flex-col items-end gap-1">
+                    <div className="font-mono text-green-500 text-sm whitespace-nowrap flex-shrink-0 sm:text-base md:text-xl">
+                        /* Heap Hierarch */
+                    </div>
+                    <a 
+                        href="#contact-section"
+                        className="text-blue-400 hover:text-blue-300 underline text-sm sm:text-base md:text-lg"
+                    >
+                        Contact Me
+                    </a>
                 </div>
             </header>
 
@@ -91,7 +106,7 @@ export default function MainPage() {
             <div className="flex-1 relative overflow-hidden">
                 {/* Scrollable content layer */}
                 <div ref={scrollContainerRef} className="absolute inset-0 overflow-y-auto p-8" style={{ backgroundColor: '#1e1e1e' }}>
-                    <div className="max-w-4xl mx-auto space-y-8">
+                    <div id="top" className="max-w-4xl mx-auto space-y-8">
                         {sections.map((section, index) => (
                             <section key={section.id}>
                                 {/* Anchor for intersection observer */}
@@ -129,7 +144,7 @@ export default function MainPage() {
                         ))}
 
                         {/* Contact Section */}
-                        <section className="min-h-screen flex flex-col items-center justify-center relative z-20">
+                        <section id="contact-section" className="min-h-screen flex flex-col items-center justify-center relative z-20">
                             <h2 className="text-4xl font-bold mb-6 text-gray-100">Let's Connect</h2>
                             <p className="text-xl text-gray-300 text-center max-w-2xl mb-8">
                                 Interested in working together or have a project in mind?
@@ -145,6 +160,24 @@ export default function MainPage() {
                                 <p className="text-lg">
                                     <span className="font-semibold text-gray-100">GitHub:</span> <a href="https://github.com/sseidel16" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">github.com/sseidel16</a>
                                 </p>
+                            </div>
+
+                            {/* Fibonacci Code Reveal */}
+                            <div className="mt-16 text-center">
+                                <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-4">
+                                    By the way, did you realize what the flipping image tile bits represent? They provide source code for one of the most elegant and simple dynamic programming solutions, providing a fibonacci result in linear time complexity and constant space.
+                                </p>
+                                <button 
+                                    onClick={() => setShowCode(!showCode)}
+                                    className="text-blue-400 hover:text-blue-300 underline text-lg cursor-pointer bg-transparent border-0 p-0"
+                                >
+                                    {showCode ? 'Hide the code' : 'See the full code'}
+                                </button>
+                                {showCode && (
+                                    <pre className="mt-6 bg-gray-900 text-gray-100 p-6 rounded-lg text-left max-w-2xl mx-auto overflow-x-auto">
+                                        <code>{fibCode}</code>
+                                    </pre>
+                                )}
                             </div>
                         </section>
                     </div>
