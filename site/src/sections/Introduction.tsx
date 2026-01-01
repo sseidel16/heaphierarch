@@ -1,22 +1,32 @@
 import React from 'react';
 
-export default function Introduction() {
+export default function HelloWorld() {
     return (
         <div className="space-y-4 text-gray-300">
             <p className="text-lg">
-                Self-taught technologist with 15+ years of hands-on experience spanning software, hardware, and algorithms.
+                Hey there! I'm Stephen, the <span className="font-semibold text-blue-400">Heap Hierarch</span>,
+                a name that reflects my love for data structures and clean code.
             </p>
             <p>
-                Currently architecting generative AI systems at Amazon (Ring) serving millions, with prior experience 
-                building microsecond-latency systems for high-frequency trading. Started coding in Java, C, and C++ at 
-                age 12, building electronics projects with Raspberry Pi and shipping Android apps with 50K+ downloads 
-                before college.
+                My journey into tech started young. Really young. At 12, I was teaching myself programming through random 
+                languages like yabasic, then diving into Java, C, and C++. While other kids were playing games, I was building 
+                them—and building circuits with Raspberry Pi, learning my way around oscilloscopes and breadboards.
             </p>
             <p>
-                Built compilers and interpreted languages for personal projects. Strategically pursued Systems Engineering 
-                (not CS) to gain deep hardware expertise in FPGAs, digital design, and circuits while maintaining software 
-                mastery. Published 3 research papers on algorithmic optimization during Master's studies. Perfect 4.0 GPA 
-                across all degrees, ASU Outstanding Graduate.
+                By 16, I was already in college with a solid foundation in both software and hardware. But here's the interesting 
+                part: I deliberately chose Systems Engineering over Computer Science. Why? I was already a proficient programmer. 
+                What I craved was the hardware knowledge: circuits, digital design, FPGAs, robotics. I wanted to understand computers 
+                from the silicon up, not just from the API down.
+            </p>
+            <p>
+                Some of my best memories from school involve intense competition. Like the autonomous car racing project where only 
+                3 out of all the teams even finished the race, and mine crossed first. Multiple Arduinos, LIDAR, adaptive speed 
+                control, fault-tolerant sensor fusion. That's the kind of challenge that gets me out of bed in the morning.
+            </p>
+            <p>
+                These days, I'm a Tech Lead at Amazon Ring, where I architect and build systems that millions of people rely on. 
+                Most recently, I led the development of ring.com's AI-powered chat service, bringing generative AI to customer 
+                support at scale. I love the blend of cutting-edge tech, team leadership, and solving real problems for real people.
             </p>
         </div>
     );

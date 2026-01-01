@@ -1,19 +1,21 @@
 import React, { useState, useRef, useEffect, act, useMemo } from 'react';
 import FlipTiles from './FlipTiles';
 import { images } from './images';
-import Introduction from './sections/Introduction';
+import HelloWorld from './sections/Introduction';
 import Experience from './sections/Experience';
 import Education from './sections/Education';
 import TechnicalSkills from './sections/TechnicalSkills';
+import Security from './sections/Security';
 import Projects from './sections/Projects';
 import Publications from './sections/Publications';
 import Hobbies from './sections/Hobbies';
 
 const sections = [
-    { id: 'Introduction', Component: Introduction },
+    { id: 'Hello World', Component: HelloWorld },
     { id: 'Experience', Component: Experience },
     { id: 'Education', Component: Education },
     { id: 'Technical Skills', Component: TechnicalSkills },
+    { id: 'Security', Component: Security },
     { id: 'Projects', Component: Projects },
     { id: 'Publications', Component: Publications },
     { id: 'Hobbies', Component: Hobbies },
