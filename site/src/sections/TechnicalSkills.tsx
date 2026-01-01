@@ -12,6 +12,10 @@ export default function TechnicalSkills() {
                 <p>React, Angular, Vue.js, Android Development, Vite, Tailwind CSS, SCSS, Styled Components, HTML/CSS, Apollo GraphQL</p>
             </div>
             <div>
+                <h3 className="text-lg font-semibold text-gray-100">AI & Machine Learning</h3>
+                <p>Claude Models (Prompt Engineering), AWS Bedrock (Knowledge Bases, Agents), Guardrails, Streamed Responses, Model Context Protocol (MCP), Cursor, GitHub Copilot+, Vibe Coding</p>
+            </div>
+            <div>
                 <h3 className="text-lg font-semibold text-gray-100">Backend & Frameworks</h3>
                 <p>Node.js, Spring Boot, Express, Vert.x, GraphQL, REST APIs, Microservices, gRPC, OAuth 2.0, Netflix Hollow</p>
             </div>
@@ -59,6 +63,9 @@ export default function TechnicalSkills() {
                 <h3 className="text-lg font-semibold text-gray-100">Specializations</h3>
                 <p>Low-Latency Systems, System Architecture, Generative AI Integration, Algorithmic Optimization, Hardware/Software Co-design, Cache Optimization, Lock-Free Data Structures, High-Frequency Trading Parsers</p>
             </div>
+            <p className="text-gray-400 italic pt-2">
+                ...and eagerly awaiting whatever obscure technology I'll need to learn next week.
+            </p>
         </div>
     );
 }
