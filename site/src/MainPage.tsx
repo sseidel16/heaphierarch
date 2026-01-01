@@ -80,7 +80,7 @@ export default function MainPage() {
             <header className="bg-gray-800 text-white py-6 px-8 shadow-lg flex items-center justify-between z-20 relative">
                 <div>
                     <h1 className="text-3xl font-bold">Stephen Seidel</h1>
-                    <p className="text-gray-300 text-lg mt-1">Software Engineer</p>
+                    <p className="text-gray-300 text-lg mt-1">Senior Software and Systems Engineer</p>
                 </div>
                 <div className="font-mono text-green-500 text-xl">
                     /* Heap Hierarch */
