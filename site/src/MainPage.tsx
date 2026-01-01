@@ -172,7 +172,7 @@ export default function MainPage() {
                             {/* Fibonacci Code Reveal */}
                             <div className="mt-16 text-center">
                                 <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-4">
-                                    By the way, did you realize what the flipping image tile bits represent? They provide source code for one of the most elegant and simple dynamic programming solutions, providing a fibonacci result in linear time complexity and constant space.
+                                    By the way, did you realize what the flipping image tile bits represent? They provide source code for one of the most elegant and simple dynamic programming solutions: a fibonacci result in constant space and linear time complexity. Or is it linear (wink)? Maybe going down this rationale is a bit... fibbing. Does P equal NP?
                                 </p>
                                 <button 
                                     onClick={() => setShowCode(!showCode)}
