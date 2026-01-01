@@ -27,6 +27,8 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         rows,
         cols,
         tileSize,
+        fontSize,
+        charFontSize,
     } = useMemo(() => {
         const area = dimensions.width * dimensions.height;
         const tileDimAim = Math.sqrt(area / trimmedCode.length); // Aim for ~trimmed length tiles
@@ -35,7 +37,11 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         const cols = Math.ceil(dimensions.width / tileSize);
         const rows = Math.ceil(dimensions.height / tileSize);
 
-        return { rows, cols, tileSize };
+        // Calculate font size based on tile size
+        const fontSize = Math.floor(tileSize / 6);
+        const charFontSize = Math.floor(tileSize / 4);
+
+        return { rows, cols, tileSize, fontSize, charFontSize };
     }, [dimensions]);
 
     const tilesGrid = useMemo(() => {
@@ -110,7 +116,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                             >
                                 {/* Front face - Image with ASCII byte overlay */}
                                 <div
-                                    className="absolute inset-0 flex flex-col items-center justify-center font-mono text-sm border"
+                                    className="absolute inset-0 flex flex-col items-center justify-center font-mono border"
                                     style={{
                                         backfaceVisibility: 'hidden',
                                         backgroundImage: `url(${imageData.src})`,
@@ -119,6 +125,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                         backgroundRepeat: 'no-repeat',
                                         color: 'rgba(180, 180, 180, 0.8)',
                                         borderColor: '#3e3e3e',
+                                        fontSize: `${fontSize}px`,
                                     }}
                                 >
                                     {(() => {
@@ -130,7 +137,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                             <>
                                                 <div>{upperNibble}</div>
                                                 <div>{lowerNibble}</div>
-                                                <div className="mt-1 text-base font-semibold">{char}</div>
+                                                <div className="font-semibold" style={{ fontSize: `${charFontSize}px`, marginTop: '2px' }}>{char}</div>
                                             </>
                                         );
                                     })()}
