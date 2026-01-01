@@ -106,6 +106,11 @@ export default function MainPage() {
 
             {/* Content area - contains both scrollable content and fixed FlipTiles */}
             <div className="flex-1 relative overflow-hidden">
+                {/* Active Section Indicator */}
+                <div className={`absolute top-2 left-2 z-20 bg-gray-900 border border-gray-700 rounded-lg px-5 py-3 shadow-lg transition-opacity duration-500 ${activeSectionIndex !== null ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className="text-2xl font-mono font-bold text-blue-400">&lt;{sections[currentSectionIndex].id} /&gt;</div>
+                </div>
+
                 {/* Scrollable content layer */}
                 <div ref={scrollContainerRef} className="absolute inset-0 overflow-y-auto p-8" style={{ backgroundColor: '#1e1e1e' }}>
                     <div id="top" className="max-w-4xl mx-auto space-y-8">
@@ -186,13 +191,8 @@ export default function MainPage() {
                 </div>
 
                 {/* FlipTiles - fixed overlay covering the content area */}
-                <div className="absolute inset-0 z-10 pointer-events-none p-8">
+                <div className="absolute inset-0 z-10 pointer-events-none pt-16 px-8 pb-8">
                     <FlipTiles flipped={activeSectionIndex !== null} imageData={images[currentSectionIndex]} />
-                </div>
-
-                {/* Active Section Indicator */}
-                <div className={`absolute top-16 left-16 z-20 bg-gray-900 rounded-lg px-6 py-4 shadow-lg transition-opacity duration-500 ${activeSectionIndex !== null ? 'opacity-100' : 'opacity-0'}`}>
-                    <div className="text-2xl font-mono font-bold text-blue-400">&lt;{sections[currentSectionIndex].id} /&gt;</div>
                 </div>
             </div>
         </div>
