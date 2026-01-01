@@ -80,20 +80,21 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
     }, [imageData, dimensions])
 
     const tilesGrid = useMemo(() => {
-        console.log(flipped, focusX, focusY);
+        const maxDistance = Math.sqrt(dimensions.width ** 2 + dimensions.height ** 2);
         return Array.from({ length: rows }).map((_, rowIndex) => {
             return Array.from({ length: cols }).map((_, colIndex) => {
                 const id = rowIndex * cols + colIndex;
-                
+
                 // Calculate tile center position
                 const tileCenterX = colIndex * tileSize + tileSize / 2;
                 const tileCenterY = rowIndex * tileSize + tileSize / 2;
-                
+
                 // Calculate distance from focus point
                 const dx = tileCenterX - focusX;
                 const dy = tileCenterY - focusY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
+                const jitter = 150 * Math.random();
+                const distance = (Math.sqrt(dx ** 2 + dy ** 2) / maxDistance) * 600 + jitter;
+
                 return {
                     id,
                     delay: Math.floor(distance),
@@ -136,7 +137,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                         backfaceVisibility: 'hidden',
                                         backgroundImage: `url(${imageData.src})`,
                                         backgroundSize: `${imageWidth}px ${imageHeight}px`,
-                                        backgroundPosition: `${-colIndex * tileSize + shiftX}px ${ -rowIndex * tileSize + shiftY}px`,
+                                        backgroundPosition: `${-colIndex * tileSize + shiftX}px ${-rowIndex * tileSize + shiftY}px`,
                                         backgroundRepeat: 'no-repeat',
                                         color: 'rgba(180, 180, 180, 0.8)',
                                         borderColor: '#3e3e3e',
