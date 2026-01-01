@@ -2,8 +2,6 @@ import { ImageData } from 'images';
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { fibCode } from './code'
 
-const TILE_SIZE = 100;
-
 type FlipTilesProps = {
     flipped: boolean;
     imageData: ImageData;
@@ -25,24 +23,32 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         return () => observer.disconnect()
     }, [containerRef]);
 
+    const {
+        rows,
+        cols,
+        tileSize,
+    } = useMemo(() => {
+        const area = dimensions.width * dimensions.height;
+        const tileDimAim = Math.sqrt(area / 100); // Aim for ~100 tiles
+        const tileSize = Math.ceil(dimensions.width / Math.floor(dimensions.width / tileDimAim));
+
+        const cols = Math.ceil(dimensions.width / tileSize);
+        const rows = Math.ceil(dimensions.height / tileSize);
+
+        return { rows, cols, tileSize };
+    }, [dimensions]);
+
     const tilesGrid = useMemo(() => {
-        const cols = Math.ceil(dimensions.width / TILE_SIZE);
-        const rows = Math.ceil(dimensions.height / TILE_SIZE);
-
-        const maxDim = rows + cols;
-
         return Array.from({ length: rows }).map((_, rowIndex) => {
             return Array.from({ length: cols }).map((_, colIndex) => {
                 const id = rowIndex * cols + colIndex;
                 return {
                     id,
-                    bgX: -colIndex * TILE_SIZE,
-                    bgY: -rowIndex * TILE_SIZE,
                     delay: Math.floor(Math.random() * 500),
                 }
             })
         });
-    }, [dimensions])
+    }, [rows, cols]);
 
     const {
         imageWidth,
@@ -87,14 +93,14 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                 }}
             >
                 {tilesGrid.map((rowTiles, rowIndex) => (
-                    <div key={rowIndex} className="flex flex-row overflow-hidden" style={{ height: TILE_SIZE }}>
-                        {rowTiles.map((tile) => (
+                    <div key={rowIndex} className="flex flex-row overflow-hidden" style={{ height: tileSize }}>
+                        {rowTiles.map((tile, colIndex) => (
                             <div
                                 key={tile.id}
                                 className="relative flex-shrink-0"
                                 style={{
-                                    width: TILE_SIZE,
-                                    height: TILE_SIZE,
+                                    width: tileSize,
+                                    height: tileSize,
                                     transformStyle: 'preserve-3d',
                                     transition: `transform 300ms, opacity 450ms`,
                                     transitionDelay: `${tile.delay}ms`,
@@ -109,7 +115,7 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
                                         backfaceVisibility: 'hidden',
                                         backgroundImage: `url(${imageData.src})`,
                                         backgroundSize: `${imageWidth}px ${imageHeight}px`,
-                                        backgroundPosition: `${tile.bgX + shiftX}px ${tile.bgY + shiftY}px`,
+                                        backgroundPosition: `${-colIndex * tileSize + shiftX}px ${ -rowIndex * tileSize + shiftY}px`,
                                         backgroundRepeat: 'no-repeat',
                                         color: 'rgba(180, 180, 180, 0.8)',
                                         borderColor: '#3e3e3e',
