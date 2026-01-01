@@ -135,7 +135,7 @@ export default function MainPage() {
                                     </div>
 
                                     {/* Continue scrolling */}
-                                    <div className="flex flex-col items-center mt-8 text-gray-400 relative z-20">
+                                    <div className="flex flex-col items-center mt-8 text-gray-400 relative">
                                         <span className="text-sm mb-2">Continue scrolling</span>
                                         <svg
                                             className="w-6 h-6 animate-bounce"
