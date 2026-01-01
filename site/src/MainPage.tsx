@@ -77,7 +77,7 @@ export default function MainPage() {
     }, [activeSectionIndex]);
 
     return (
-        <div className="h-screen w-screen flex flex-col overflow-hidden">
+        <div className="h-viewport w-screen flex flex-col overflow-hidden">
             {/* Fixed Header */}
             <header className="bg-gray-800 text-white py-3 px-4 shadow-lg flex flex-col gap-1 z-20 relative sm:py-6 sm:px-8">
                 {/* First row: Name and Heap Hierarch */}
