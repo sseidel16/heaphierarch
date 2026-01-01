@@ -192,7 +192,10 @@ export default function MainPage() {
 
                 {/* FlipTiles - fixed overlay covering the content area */}
                 <div className="absolute inset-0 z-10 pointer-events-none pt-12 px-8 pb-8">
-                    <FlipTiles flipped={activeSectionIndex !== null} imageData={images[currentSectionIndex]} />
+                    <FlipTiles
+                        flipped={activeSectionIndex !== null}
+                        imageData={images[activeSectionIndex || currentSectionIndex]}
+                    />
                 </div>
             </div>
         </div>

@@ -49,6 +49,8 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         imageHeight,
         shiftX,
         shiftY,
+        focusX,
+        focusY,
     } = useMemo(() => {
         const scale = Math.max(
             dimensions.width / imageData.width,
@@ -78,16 +80,27 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
     }, [imageData, dimensions])
 
     const tilesGrid = useMemo(() => {
+        console.log(flipped, focusX, focusY);
         return Array.from({ length: rows }).map((_, rowIndex) => {
             return Array.from({ length: cols }).map((_, colIndex) => {
                 const id = rowIndex * cols + colIndex;
+                
+                // Calculate tile center position
+                const tileCenterX = colIndex * tileSize + tileSize / 2;
+                const tileCenterY = rowIndex * tileSize + tileSize / 2;
+                
+                // Calculate distance from focus point
+                const dx = tileCenterX - focusX;
+                const dy = tileCenterY - focusY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
                 return {
                     id,
-                    delay: Math.floor(Math.random() * 500),
+                    delay: Math.floor(distance),
                 }
             })
         });
-    }, [rows, cols, imageData]);
+    }, [rows, cols, tileSize, focusX, focusY]);
 
     return (
         <div
