@@ -44,18 +44,6 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
         return { rows, cols, tileSize, fontSize, charFontSize };
     }, [dimensions]);
 
-    const tilesGrid = useMemo(() => {
-        return Array.from({ length: rows }).map((_, rowIndex) => {
-            return Array.from({ length: cols }).map((_, colIndex) => {
-                const id = rowIndex * cols + colIndex;
-                return {
-                    id,
-                    delay: Math.floor(Math.random() * 500),
-                }
-            })
-        });
-    }, [rows, cols]);
-
     const {
         imageWidth,
         imageHeight,
@@ -84,8 +72,22 @@ export default function FlipTiles({ flipped, imageData }: FlipTilesProps) {
             imageHeight,
             shiftX,
             shiftY,
+            focusX: focusX + shiftX,
+            focusY: focusY + shiftY,
         };
     }, [imageData, dimensions])
+
+    const tilesGrid = useMemo(() => {
+        return Array.from({ length: rows }).map((_, rowIndex) => {
+            return Array.from({ length: cols }).map((_, colIndex) => {
+                const id = rowIndex * cols + colIndex;
+                return {
+                    id,
+                    delay: Math.floor(Math.random() * 500),
+                }
+            })
+        });
+    }, [rows, cols, imageData]);
 
     return (
         <div
