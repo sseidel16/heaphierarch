@@ -79,23 +79,25 @@ export default function MainPage() {
     return (
         <div className="h-screen w-screen flex flex-col overflow-hidden">
             {/* Fixed Header */}
-            <header className="bg-gray-800 text-white py-3 px-4 shadow-lg flex items-center justify-between z-20 relative sm:py-6 sm:px-8">
-                <div className="min-w-0 flex-shrink">
+            <header className="bg-gray-800 text-white py-3 px-4 shadow-lg flex flex-col gap-1 z-20 relative sm:py-6 sm:px-8">
+                {/* First row: Name and Heap Hierarch */}
+                <div className="flex items-center justify-between gap-4 min-w-0">
                     <a 
                         href="#top"
-                        className="text-xl font-bold whitespace-nowrap sm:text-2xl md:text-3xl hover:text-gray-300 transition-colors cursor-pointer no-underline text-white"
+                        className="text-xl font-bold whitespace-nowrap sm:text-2xl md:text-3xl hover:text-gray-300 transition-colors cursor-pointer no-underline text-white min-w-0 overflow-hidden text-ellipsis flex-shrink"
                     >
-                        <h1 className="inline">Stephen Seidel</h1>
+                        <h1 className="inline overflow-hidden text-ellipsis">Stephen Seidel</h1>
                     </a>
-                    <p className="text-gray-300 text-sm mt-0 whitespace-nowrap sm:text-base sm:mt-0.5 md:text-lg md:mt-1">Senior Software and Systems Engineer</p>
-                </div>
-                <div className="flex flex-col items-end gap-1">
-                    <div className="font-mono text-green-500 text-sm whitespace-nowrap flex-shrink-0 sm:text-base md:text-xl">
+                    <div className="font-mono text-green-500 text-sm whitespace-nowrap min-w-0 overflow-hidden text-ellipsis sm:text-base md:text-xl flex-shrink">
                         /* Heap Hierarch */
                     </div>
+                </div>
+                {/* Second row: Title and Contact Me */}
+                <div className="flex items-center justify-between gap-4 min-w-0">
+                    <p className="text-gray-300 text-sm whitespace-nowrap min-w-0 overflow-hidden text-ellipsis sm:text-base md:text-lg flex-shrink">Senior Software and Systems Engineer</p>
                     <a 
                         href="#contact-section"
-                        className="text-blue-400 hover:text-blue-300 underline text-sm sm:text-base md:text-lg"
+                        className="text-blue-400 hover:text-blue-300 underline text-sm whitespace-nowrap min-w-0 overflow-hidden text-ellipsis sm:text-base md:text-lg flex-shrink"
                     >
                         Contact Me
                     </a>
