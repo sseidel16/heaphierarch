@@ -94,7 +94,14 @@ export default function MainPage() {
                 </div>
                 {/* Second row: Title and Contact Me */}
                 <div className="flex items-center justify-between gap-4 min-w-0">
-                    <p className="text-gray-300 text-sm whitespace-nowrap min-w-0 overflow-hidden text-ellipsis sm:text-base md:text-lg flex-shrink">Senior Software and Systems Engineer</p>
+                    <a 
+                        href="https://sseidel16.github.io/resume/output/resume.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 underline text-sm whitespace-nowrap min-w-0 overflow-hidden text-ellipsis sm:text-base md:text-lg flex-shrink transition-colors"
+                    >
+                        Senior Software and Systems Engineer
+                    </a>
                     <a 
                         href="#contact-section"
                         className="text-blue-400 hover:text-blue-300 underline text-sm whitespace-nowrap min-w-0 overflow-hidden text-ellipsis sm:text-base md:text-lg flex-shrink"

@@ -28,6 +28,9 @@ export default function HelloWorld() {
                 Most recently, I led the development of ring.com's AI-powered chat service, bringing generative AI to customer 
                 support at scale. I love the blend of cutting-edge tech, team leadership, and solving real problems for real people.
             </p>
+            <p>
+                Want to learn more? Check out my <a href="https://sseidel16.github.io/resume/output/resume.html" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">resume</a>.
+            </p>
         </div>
     );
 }
