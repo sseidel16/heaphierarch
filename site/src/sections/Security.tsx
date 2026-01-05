@@ -5,45 +5,47 @@ export default function Security() {
         <div className="space-y-6 text-gray-300">
             <div>
                 <h3 className="text-xl font-semibold text-gray-100">Application Security Certifier</h3>
-                <p className="text-gray-400">Amazon (Ring) • 2021 - 2023</p>
+                <p className="text-gray-400">Amazon (Ring) • April 2021 - April 2023</p>
                 <p className="mt-2">
-                    Became Ring's Application Security Certifier, responsible for running security certifications across 
-                    Ring and Alexa products. This wasn't just paperwork. I dove deep into firmware code, network protocols, 
-                    and system architecture to find real vulnerabilities before they reached production.
+                    Served as Ring's Application Security Certifier, responsible for running security certifications across 
+                    Ring and Alexa products. This role involved comprehensive security analysis of firmware code, network protocols, 
+                    and system architecture to identify vulnerabilities before production deployment.
                 </p>
                 <ul className="mt-2 space-y-1 list-disc list-inside">
-                    <li>Found and eliminated critical buffer overflow vulnerabilities in Ring Marlin camera firmware</li>
-                    <li>Certified Alexa Bluetooth firmware libraries running on IoT devices</li>
-                    <li>Secured Alexa target determination services that decide which device responds to voice commands</li>
-                    <li>Performed security analysis on multiple Ring camera firmware versions</li>
+                    <li><span className="font-semibold text-gray-100">Ring Marlin Camera Firmware:</span> Discovered and eliminated multiple buffer overflow vulnerabilities that could have had severe security consequences</li>
+                    <li><span className="font-semibold text-gray-100">Alexa Bluetooth Firmware Libraries:</span> Certified security of Bluetooth firmware running on IoT devices</li>
+                    <li><span className="font-semibold text-gray-100">Alexa Target Determination Services:</span> Secured services responsible for determining which Alexa device responds to voice commands</li>
+                    <li><span className="font-semibold text-gray-100">Ring Camera Firmwares:</span> Performed security analysis on multiple Ring camera firmware versions</li>
                 </ul>
+                <p className="mt-2">
+                    Used BurpSuite, Fortify, and Wireshark for comprehensive security analysis. Worked closely with development teams to remediate identified issues before they reached production.
+                </p>
             </div>
             <div>
                 <h3 className="text-xl font-semibold text-gray-100">Secure File Transfer Architecture</h3>
                 <p className="text-gray-400">Amazon (Ring) • 2023 - Present</p>
                 <p className="mt-2">
-                    Designed and built Ring's secure customer file upload system from the ground up with security as 
-                    the primary concern. The system handles sensitive customer files, images, videos, audio, with multiple 
-                    layers of protection and isolation.
+                    Architected and built Ring's secure customer file upload system from the ground up with security as 
+                    a first-class concern, not an afterthought. The system handles sensitive customer files including images, videos, and audio 
+                    with multiple layers of protection and isolation.
                 </p>
                 <ul className="mt-2 space-y-1 list-disc list-inside">
-                    <li>Implemented end-to-end envelope encryption from customer browser to internal systems</li>
-                    <li>Architected isolated container system for file processing, each file gets its own pre-warmed container</li>
-                    <li>Built role-based access controls limiting which internal employees can access customer files</li>
-                    <li>Designed intelligent file mapping system that safely converts uploads to appropriate formats</li>
+                    <li><span className="font-semibold text-gray-100">End-to-End Envelope Encryption:</span> Implemented encryption from customer browser through internal systems, ensuring data security at every stage</li>
+                    <li><span className="font-semibold text-gray-100">Isolated Container Architecture:</span> Each file upload is processed in its own isolated container with pre-warmed pools for latency optimization</li>
+                    <li><span className="font-semibold text-gray-100">Role-Based Access Controls:</span> Strict controls limiting which internal employees can access customer files</li>
+                    <li><span className="font-semibold text-gray-100">Intelligent File Mapping:</span> Secure detection and mapping system using separate algorithm-controlled warming for different media types</li>
                 </ul>
+                <p className="mt-2">
+                    Security principles were embedded from the first line of code, demonstrating that robust security and high performance can coexist.
+                </p>
             </div>
             <div>
-                <h3 className="text-xl font-semibold text-gray-100">Security Tools & Practices</h3>
+                <h3 className="text-xl font-semibold text-gray-100">Security Mindset & Practices</h3>
                 <p className="mt-2">
-                    Throughout my career, I've developed a practical security mindset, not just following checklists, 
-                    but thinking like an attacker to find real vulnerabilities. I use tools like BurpSuite for web 
-                    application testing, Fortify for static analysis, and Wireshark for network protocol analysis.
-                </p>
-                <p className="mt-2">
-                    Security isn't just about tools though. It's about architecture decisions, defense in depth, 
-                    least privilege, and building systems that fail safely. Whether it's firmware on IoT devices 
-                    or cloud services handling millions of requests, I apply security thinking from the first line of code.
+                    Throughout my career, I've developed a comprehensive security approach that goes beyond tools and checklists. 
+                    Security thinking is integrated into architecture decisions from the beginning—defense in depth, 
+                    least privilege, and building systems that fail safely. Whether working on firmware for IoT devices 
+                    or cloud services handling millions of requests, security considerations are paramount from the first design decision.
                 </p>
             </div>
         </div>

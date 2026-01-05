@@ -9,15 +9,15 @@ export default function TechnicalSkills() {
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Frontend & Mobile</h3>
-                <p>React, Angular, Vue.js, Android Development, Vite, Tailwind CSS, SCSS, Styled Components, HTML/CSS, Apollo GraphQL</p>
+                <p>React, Angular, Vue.js, Android Development, iOS Development, Vite, Tailwind CSS, SCSS, Styled Components, HTML/CSS, Apollo GraphQL</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">AI & Machine Learning</h3>
-                <p>Claude Models (Prompt Engineering), AWS Bedrock (Knowledge Bases, Agents), Guardrails, Streamed Responses, Model Context Protocol (MCP), Cursor, GitHub Copilot+, Vibe Coding</p>
+                <p>Claude Models (Prompt Engineering), AWS Bedrock (Knowledge Bases, Agents, Guardrails, Streamed Responses), Model Context Protocol (MCP), Cursor, GitHub Copilot+, Vibe Coding, CUDA, cuBLAS</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Backend & Frameworks</h3>
-                <p>Node.js, Spring Boot, Express, Vert.x, GraphQL, REST APIs, Microservices, gRPC, OAuth 2.0, Netflix Hollow</p>
+                <p>Node.js, Spring Boot, Express, Vert.x, GraphQL, REST APIs, Microservices, gRPC, OAuth 2.0, Netflix Hollow, WebSockets</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Databases</h3>
@@ -25,7 +25,7 @@ export default function TechnicalSkills() {
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">AWS & Cloud</h3>
-                <p>AWS CDK, Lambda, S3, CloudFront, CloudWatch, Code Pipeline, SQS, DynamoDB, EC2, API Gateway</p>
+                <p>AWS CDK, Lambda, S3, CloudFront, CloudWatch, AWS X-Ray, Code Pipeline, SQS, DynamoDB, EC2, API Gateway, Bedrock</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">DevOps & Infrastructure</h3>
@@ -33,7 +33,7 @@ export default function TechnicalSkills() {
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Message Queues & Streaming</h3>
-                <p>Kafka, AWS SQS, WebSockets</p>
+                <p>Apache Kafka, AWS SQS, WebSockets</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Testing & Quality</h3>
@@ -41,7 +41,7 @@ export default function TechnicalSkills() {
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Security</h3>
-                <p>BurpSuite, Fortify, Wireshark, OAuth 2.0, End-to-End Encryption, Application Security Certification</p>
+                <p>BurpSuite, Fortify, Wireshark, OAuth 2.0, End-to-End Encryption, Application Security Certification, Buffer Overflow Analysis</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Monitoring & Observability</h3>
@@ -49,7 +49,7 @@ export default function TechnicalSkills() {
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Hardware & Low-Level</h3>
-                <p>FPGAs, Verilog, Vivado Design Suite, Arduino, Digital Design, CUDA, cuBLAS, OpenSL ES</p>
+                <p>FPGAs, Verilog, Vivado Design Suite, Arduino, Digital Design, CUDA, cuBLAS, OpenSL ES, Circuit Design, Oscilloscopes, Breadboards</p>
             </div>
             <div>
                 <h3 className="text-lg font-semibold text-gray-100">Networking & Protocols</h3>
