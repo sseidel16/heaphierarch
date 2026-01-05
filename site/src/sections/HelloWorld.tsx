@@ -8,7 +8,7 @@ export default function HelloWorld() {
                 a name that reflects my passion for data structures and clean code.
             </p>
             <p>
-                My journey into technology started early—at 12, I began teaching myself programming through languages like <a href="https://en.wikipedia.org/wiki/Yabasic" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Yabasic</a>, Java, C, and C++. While other kids were playing games, I was building 
+                My journey into technology started early. At 12, I began teaching myself programming through languages like <a href="https://en.wikipedia.org/wiki/Yabasic" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Yabasic</a>, Java, C, and C++. While other kids were playing games, I was building 
                 them, and constructing circuits with Raspberry Pi, learning my way around oscilloscopes and breadboards.
             </p>
             <p>
@@ -19,7 +19,7 @@ export default function HelloWorld() {
             </p>
             <p>
                 Some of my most memorable achievements from school involve hands-on competition. In an autonomous car racing project, 
-                only 3 teams out of the entire cohort successfully completed the race—and my vehicle crossed the finish line first. 
+                only 3 teams out of the entire cohort successfully completed the race, and my vehicle crossed the finish line first. 
                 The project integrated multiple Arduinos, LIDAR sensors, adaptive speed control, and fault-tolerant sensor fusion. 
                 That's the kind of challenge I thrive on.
             </p>

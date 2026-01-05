@@ -23,7 +23,7 @@ export default function Projects() {
                 <h3 className="text-xl font-semibold text-gray-100">Autonomous Racing Vehicle</h3>
                 <p className="text-gray-400">Robotics Competition • ASU</p>
                 <p className="mt-2">
-                    Competitive autonomous car racing project where only 3 teams out of the entire cohort successfully completed the race—my vehicle placed first. 
+                    Competitive autonomous car racing project where only 3 teams out of the entire cohort successfully completed the race, and my vehicle placed first. 
                     Featured multiple Arduinos, LIDAR sensor integration, adaptive speed control, and fault-tolerant sensor fusion. 
                     Demonstrated expertise in robotics, real-time systems, and sensor integration under competitive conditions.
                 </p>

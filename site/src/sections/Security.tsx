@@ -43,7 +43,7 @@ export default function Security() {
                 <h3 className="text-xl font-semibold text-gray-100">Security Mindset & Practices</h3>
                 <p className="mt-2">
                     Throughout my career, I've developed a comprehensive security approach that goes beyond tools and checklists. 
-                    Security thinking is integrated into architecture decisions from the beginning—defense in depth, 
+                    Security thinking is integrated into architecture decisions from the beginning: defense in depth, 
                     least privilege, and building systems that fail safely. Whether working on firmware for IoT devices 
                     or cloud services handling millions of requests, security considerations are paramount from the first design decision.
                 </p>
